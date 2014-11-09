@@ -11,6 +11,9 @@ I'm trying to not overwrite any style on normalize
 - http://barebones.paulrobertlloyd.com/
 - http://goldilocksapproach.com/
 - http://typeplate.com/
+- http://welchcanavan.com/responsive-modular-scale/
+- http://www.hyperarts.com/blog/how-to-use-a-modular-scale/
+- https://bugsnag.com/blog/responsive-typography-with-modular-scale
 - http://alistapart.com/article/more-meaningful-typography
 - http://webdesign.tutsplus.com/articles/a-web-designers-typographic-boilerplate--webdesign-15234
 - http://vimeo.com/17079380
