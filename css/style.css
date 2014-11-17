@@ -18,28 +18,27 @@ html {
   line-height: 1.618; }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
   font-weight: bold;
   line-height: 1.125;
   color: #333;
   text-rendering: optimizeLegibility; }
 
 h1 {
-  font-size: 2.618rem; }
+  font-size: 2.618em; }
 
 h2 {
-  font-size: 1.82rem170; }
+  font-size: 1.82em; }
 
 h3 {
-  font-size: 1.618rem; }
+  font-size: 1.618em; }
 
 h4, h5, h6 {
-  font-size: 1.125rem; }
+  font-size: 1.125em; }
 
 p {
-  margin-top: 0;
-  margin-bottom: 1rem; }
+  margin-bottom: 1em; }
 
 strong {
   color: #404040; }
@@ -52,18 +51,18 @@ nav ol {
 
 ul, ol, dl {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
   line-height: 1.618; }
 
 dt {
   font-weight: bold; }
 
 dd {
-  margin-bottom: 0.5rem; }
+  margin-bottom: 0.5em; }
 
 hr {
   position: relative;
-  margin: 1.5rem 0;
+  margin: 1.5em 0;
   border: 0;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #fff; }
@@ -79,7 +78,7 @@ abbr[title] {
   border-bottom: 1px dotted #e5e5e5; }
 
 pre {
-  margin-left: 1.125rem;
+  margin-left: 1.125em;
   white-space: pre-wrap; }
 
 code {
@@ -104,14 +103,14 @@ mark {
   background-color: #fff9d9; }
 
 blockquote {
-  padding: 0.5rem 1rem;
-  margin: 0.8rem 0;
+  padding: 0.5em 1em;
+  margin: 0.8em 0;
   color: gray;
-  border-left: 0.25rem solid #d9d9d9; }
+  border-left: 0.25em solid #d9d9d9; }
   @media (min-width: 30em) {
     blockquote {
-      padding-right: 5rem;
-      padding-left: 1.25rem; } }
+      padding-right: 5em;
+      padding-left: 1.25em; } }
 
 blockquote p:last-child {
   margin-bottom: 0; }
@@ -120,24 +119,24 @@ figure {
   margin-left: 0; }
 
 figcaption {
-  font-size: 0.85rem;
+  font-size: 0.85em;
   color: #9e9e9e; }
 
 caption {
-  margin-top: 0.695rem;
-  font-size: 0.85rem;
+  margin-top: 0.695em;
+  font-size: 0.85em;
   caption-side: bottom;
   color: #999999; }
 
 table {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
   width: 100%;
   border: 1px solid #b3b3b3;
   border-collapse: collapse; }
 
 td,
 th {
-  padding: 0.25rem 0.5rem;
+  padding: 0.25em 0.5em;
   border: 1px solid #e6e6e6; }
 
 tbody tr:nth-child(odd) td,

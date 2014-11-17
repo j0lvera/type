@@ -2,8 +2,9 @@
  * Type.css
  */
  
-$unit: 'rem';
+$unit: 'em';
 $base: 1#{$unit} !default;
+$base-font-size: 16px;
 $base-margin-top: $base !default;
 $base-margin-bottom: $base !default;
 $base-line-height: 1.618;
@@ -14,7 +15,7 @@ $code-text-color: tomato;
 
 html {
 	font-family: "PT Sans", sans-serif;
-	font-size: 16px;
+	font-size: $base-font-size;
 	line-height: $base-line-height;
 }
  
@@ -32,7 +33,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.82#{$unit}170;
+  font-size: 1.82#{$unit};
 }
 
 h3 {
@@ -44,7 +45,6 @@ h4, h5, h6 {
 }
 
 p {
-  margin-top: 0;
   margin-bottom: $base-margin-bottom;
 }
 
