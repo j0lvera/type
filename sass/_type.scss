@@ -1,30 +1,50 @@
 /*
  * Type.css
+ * http://modularscale.com/scale/?px1=16&px2=18&ra1=1.618&ra2=0
  */
  
+// default settings
 $unit: 'em';
 $base: 1#{$unit} !default;
-$base-font-size: 16px;
+$base-font-family: sans-serif !default;
+$base-font-size: 16px !default;
 $base-margin-top: $base !default;
 $base-margin-bottom: $base !default;
-$base-line-height: 1.618;
-$headings-line-height: 1.125;
-$text-color: #333 !default;
+$base-line-height: 1.5 !default;
+$headings-line-height: 1.125 !default;
+$text-color: #444 !default;
+$heading-color: #222 !default;
 $code-font-family: "DejaVu Sans Mono", Inconsolata, Consolas, "Lucida Console", monospace !default;
 $code-text-color: tomato;
+$indent: false !default;
+
+// mixins
+@mixin indent() {
+	@if $indent {
+		margin-bottom: 0;
+
+		& + p {
+			text-indent: 2em;		
+			margin-top: 0;
+		}
+	} @else {
+		margin-bottom: $base-margin-bottom;
+	}
+}
+
 
 html {
-	font-family: "PT Sans", sans-serif;
+	font-family: $base-font-family;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
 }
  
 h1, h2, h3, h4, h5, h6 {
 	margin-top: $base-margin-top;
-  margin-bottom: $base-margin-bottom;
+	margin-bottom: 0.354em;
   font-weight: bold;
   line-height: $headings-line-height;
-  color: $text-color;
+  color: $heading-color;
   text-rendering: optimizeLegibility;
 }
 
@@ -45,7 +65,8 @@ h4, h5, h6 {
 }
 
 p {
-  margin-bottom: $base-margin-bottom;
+	margin-top: 0;
+	@include indent();
 }
 
 strong {
@@ -82,10 +103,11 @@ hr {
 }
 
 abbr {
-  font-size: 85%;
-  font-weight: bold;
-  color: #555;
-  text-transform: uppercase;
+	font-weight: bold;
+	font-variant: small-caps;
+  color: lighten($text-color, 10%);
+  text-transform: lowercase;
+	letter-spacing: 0.1em;
 }
 
 abbr[title] {

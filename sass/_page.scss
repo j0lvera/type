@@ -1,6 +1,6 @@
 .container {
 	margin: 0 auto;
-	width: 45rem;
+	width: 30em;
 }
 
 .debug {
@@ -10,4 +10,8 @@
 .site-title {
 	color: tomato;
 	font-style: italic;
+}
+
+img {
+	max-width: 100%;
 }
