@@ -17,6 +17,8 @@ I'm trying to not overwrite any style on normalize
 - http://alistapart.com/article/more-meaningful-typography
 - http://webdesign.tutsplus.com/articles/a-web-designers-typographic-boilerplate--webdesign-15234
 - http://vimeo.com/17079380
+- http://csswizardry.com/typecsset/ **highly inspired on this**
+- http://markboulton.co.uk/journal/five-simple-steps-to-better-typography
 
 ## TODO
 
