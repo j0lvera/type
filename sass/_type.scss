@@ -1,50 +1,65 @@
 /*
  * Type.css
- * http://modularscale.com/scale/?px1=16&px2=18&ra1=1.618&ra2=0
+ */
+
+/* Modular Scale 
+http://modularscale.com/scale/?px1=16&px2=18&ra1=1.618&ra2=0
+---------------------- 
+16px @ 1:1.618 
+18px @ 1:1.618 
+----------------------*/
+
+// TODO: 
+// - Should I remove `hr`?
+// - If this is focused on typography, should I include table styling?
+
+/*
+ * ## Some Tips:
+ *
+ * - Read http://alistapart.com/article/more-meaningful-typography to understand about modular scale
+ * - Don’t use more than 2 fonts unless you know what you’re doing.
+ * - Use at least 16px for a base font size.
+ * - Don't use the darkest black (#000) available in your body text: http://ianstormtaylor.com/design-tip-never-use-black/
  */
  
-// default settings
-$unit: 'em';
+// Default settings
+$unit: 'rem' !default; // You can change it to 'em'
+
 $base: 1#{$unit} !default;
-$base-font-family: sans-serif !default;
 $base-font-size: 16px !default;
 $base-margin-top: $base !default;
 $base-margin-bottom: $base !default;
 $base-line-height: 1.5 !default;
-$headings-line-height: 1.125 !default;
-$text-color: #444 !default;
-$heading-color: #222 !default;
-$code-font-family: "DejaVu Sans Mono", Inconsolata, Consolas, "Lucida Console", monospace !default;
+$base-headings-color: #222 !default;
+$base-headings-line-height: 1.125 !default;
+$base-text-color: #444 !default;
+
 $code-text-color: tomato;
-$indent: false !default;
 
-// mixins
-@mixin indent() {
-	@if $indent {
-		margin-bottom: 0;
+$indented-paragraphs: false !default;
 
-		& + p {
-			text-indent: 2em;		
-			margin-top: 0;
-		}
-	} @else {
-		margin-bottom: $base-margin-bottom;
-	}
-}
-
+/*
+ * Base 
+ *
+ * 1. Vertical space between lines of text, for body text 150% is a good starting point.
+ *    Use a longer line height with a wider measure and vice versa.
+ */
 
 html {
-	font-family: $base-font-family;
 	font-size: $base-font-size;
-	line-height: $base-line-height;
+	line-height: $base-line-height; /* 1 */
 }
+
+/*
+ * Headings
+ *
+ * 1. On headings use a smaller line-height than body text.
+ */
  
 h1, h2, h3, h4, h5, h6 {
 	margin-top: $base-margin-top;
-	margin-bottom: 0.354em;
-  font-weight: bold;
-  line-height: $headings-line-height;
-  color: $heading-color;
+	margin-bottom: 0.382#{$unit};
+  line-height: $base-headings-line-height; /* 1 */
   text-rendering: optimizeLegibility;
 }
 
@@ -64,14 +79,30 @@ h4, h5, h6 {
   font-size: 1.125#{$unit};
 }
 
+/*
+ * Paragraph 
+ */
+
 p {
-	margin-top: 0;
-	@include indent();
+	margin-top: $base-margin-top;
+
+	@if $indented-paragraphs {
+		margin-bottom: 0;
+
+		& + p {
+			text-indent: 2em;		
+			margin-top: 0;
+		}
+	} @else {
+		margin-bottom: $base-margin-bottom;
+	}
 }
 
-strong {
-  color: lighten($text-color, 5%);
-}
+/*
+ * Lists
+ *
+ * Most `ul` inside a `nav` element doesn't need the list styling
+ */
 
 nav ul,
 nav ol {
@@ -86,13 +117,14 @@ ul, ol, dl {
   line-height: $base-line-height;
 }
 
-dt {
-  font-weight: bold;
+li > ul,
+li > ol {
+	margin-bottom: 0;
 }
 
-dd {
-  margin-bottom: .5#{$unit};
-}
+/*
+ * Better styled `<hr>`
+ */
 
 hr {
   position: relative;
@@ -102,18 +134,9 @@ hr {
   border-bottom: 1px solid #fff;
 }
 
-abbr {
-	font-weight: bold;
-	font-variant: small-caps;
-  color: lighten($text-color, 10%);
-  text-transform: lowercase;
-	letter-spacing: 0.1em;
-}
-
-abbr[title] {
-  cursor: help;
-  border-bottom: 1px dotted #e5e5e5;
-}
+/* 
+ * Code 
+ */
 
 pre {
 	margin-left: 1.125#{$unit};
@@ -122,76 +145,24 @@ pre {
 
 code {
 	color: $code-text-color;
-	font-family: $code-font-family;
 }
 
 kbd,
 samp {
-	color: lighten($text-color, 15%);
-	font-family: $code-font-family;
 	background-color: #eee;
 }
 
-samp {
-	padding: 1px 3px;
-}
-
-kbd {
-	padding: 2px 6px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-}
-
-mark {
-	background-color: #fff9d9;
-}
+/*
+ * Quotes 
+ */
 
 blockquote {
-  padding: .5#{$unit} 1#{$unit};
-  margin: .8#{$unit} 0;
-  color: lighten($text-color, 30%);
-  border-left: .25#{$unit} solid lighten($text-color, 65%);
-  
-  @media (min-width: 30em) {
-    padding-right: 5#{$unit};
-    padding-left: 1.25#{$unit};
-  }
+	padding-right: 5#{$unit};
+	padding-left: 1.25#{$unit};
+  margin: 1#{$unit} 0;
+  border-left: .25#{$unit} solid lighten($base-text-color, 65%);
 }
 
 blockquote p:last-child {
   margin-bottom: 0;
-}
-
-figure {
-	margin-left: 0;
-}
-
-figcaption {
-	font-size: 0.85#{$unit};
-	color: lighten($text-color, 41.887%);
-}
-
-caption {
-	margin-top: 0.695#{$unit};
-	font-size: 0.85#{$unit};
-	caption-side: bottom;
-	color: lighten($text-color, 40%);
-}
-
-table {
-	margin-bottom: 1#{$unit};
-	width: 100%;
-	border: 1px solid lighten($text-color, 50%);
-	border-collapse: collapse;
-}
-
-td, 
-th {
-	padding: .25#{$unit} .5#{$unit};
-	border: 1px solid lighten($text-color, 70%);
-}
-
-tbody tr:nth-child(odd) td,
-tbody tr:nth-child(odd) th {
-	background-color: lighten($text-color, 75%);
 }
